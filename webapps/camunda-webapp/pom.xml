@@ -20,6 +20,7 @@
     <module>tomcat</module>
     <module>glassfish</module>
     <module>jboss</module>
+    <module>wildfly</module>
   </modules>
 
   <properties>
