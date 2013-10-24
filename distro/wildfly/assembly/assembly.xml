@@ -14,7 +14,7 @@
     <dependencySet>
       <outputDirectory>server</outputDirectory>
       <includes>
-        <include>org.jboss.as:jboss-as-dist:tar.gz:${version.jboss.as}</include>
+        <include>org.wildfly:wildfly-dist:tar.gz:${version.wildfly}</include>
       </includes>
       <unpack>true</unpack>      
       <unpackOptions>
@@ -45,7 +45,7 @@
     </fileSet>
     <fileSet>
       <directory>../modules/target/modules</directory>
-      <outputDirectory>server/jboss-as-${version.jboss.as}/modules</outputDirectory>
+      <outputDirectory>server/wildfly-${version.wildfly}/modules/system/layers/base</outputDirectory>
     </fileSet>
   </fileSets>
   <files>
@@ -73,20 +73,20 @@
       <outputDirectory></outputDirectory>
     </file>
     <file>
-      <source>src/jboss71/standalone.xml</source>
-      <outputDirectory>server/jboss-as-${version.jboss.as}/standalone/configuration</outputDirectory>
+      <source>src/wildfly/standalone.xml</source>
+      <outputDirectory>server/wildfly-${version.wildfly}/standalone/configuration</outputDirectory>
     </file>
     <file>
-      <source>src/jboss71/standalone-full.xml</source>
-      <outputDirectory>server/jboss-as-${version.jboss.as}/standalone/configuration</outputDirectory>
+      <source>src/wildfly/standalone-full.xml</source>
+      <outputDirectory>server/wildfly-${version.wildfly}/standalone/configuration</outputDirectory>
     </file>
     <file>
-      <source>src/jboss71/standalone.conf</source>
-      <outputDirectory>server/jboss-as-${version.jboss.as}/bin/</outputDirectory>
+      <source>src/wildfly/standalone.conf</source>
+      <outputDirectory>server/wildfly-${version.wildfly}/bin/</outputDirectory>
     </file>
     <file>
-      <source>src/jboss71/standalone.conf.bat</source>
-      <outputDirectory>server/jboss-as-${version.jboss.as}/bin/</outputDirectory>
+      <source>src/wildfly/standalone.conf.bat</source>
+      <outputDirectory>server/wildfly-${version.wildfly}/bin/</outputDirectory>
     </file>
   </files>
 </assembly>

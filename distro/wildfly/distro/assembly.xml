@@ -94,14 +94,14 @@
   <fileSets>
     <fileSet>
       <directory>../../camunda-welcome</directory>
-      <outputDirectory>server/wildfly-${version.wildfly}/standalone/deployments/camunda-welcome.war</outputDirectory>      
+      <outputDirectory>server/wildfly-${version.wildfly}/standalone/deployments/camunda-welcome.war</outputDirectory>
     </fileSet>
   </fileSets>
   
   <files>
      <file>
       <source>src/EMPTY_FILE</source>
-      <outputDirectory>server/wildfly-${version.wildfly}/standalone/deployments/</outputDirectory>      
+      <outputDirectory>server/wildfly-${version.wildfly}/standalone/deployments/</outputDirectory>
       <destName>camunda-welcome.war.dodeploy</destName>
     </file>  
   </files>

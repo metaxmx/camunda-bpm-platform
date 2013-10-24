@@ -17,8 +17,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.camunda.bpm.jboss</groupId>
-      <artifactId>camunda-jboss-subsystem</artifactId>
+      <groupId>org.camunda.bpm.wildfly</groupId>
+      <artifactId>camunda-wildfly-subsystem</artifactId>
       <version>${project.version}</version>
       <exclusions>
         <exclusion>

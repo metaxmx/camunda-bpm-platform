@@ -1,5 +1,5 @@
 #! /bin/sh
-echo "starting camunda BPM ${project.version}  on JBoss Application Server ${version.jboss.as}";
+echo "starting camunda BPM ${project.version} on Wildfly Application Server ${version.wildfly}";
 
 if [ "`which firefox`" = "/usr/bin/firefox" ]; then
   BROWSER="/usr/bin/firefox";
@@ -15,4 +15,4 @@ else
   (sleep 15; $BROWSER "http://localhost:8080/camunda-welcome/index.html";) &
 fi
 
-/bin/sh ./server/jboss-as-${version.jboss.as}/bin/standalone.sh
+/bin/sh ./server/wildfly-${version.wildfly}/bin/standalone.sh

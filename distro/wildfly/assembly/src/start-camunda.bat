@@ -1,8 +1,8 @@
 @echo off
 
-echo "starting camunda BPM platform ${project.version} on JBoss Application Server ${version.jboss.as}"
+echo "starting camunda BPM platform ${project.version} on Wildfly Application Server ${version.wildfly}"
 
-cd server\jboss-as-${version.jboss.as}\bin\
+cd server\wildfly-${version.wildfly}\bin\
 start standalone.bat
 
 ping -n 5 localhost > NULL
