@@ -15,6 +15,7 @@ package org.camunda.bpm.webapp.impl.engine;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,20 +51,21 @@ public class ProcessEnginesFilter extends AbstractTemplateFilter {
     String contextPath = request.getContextPath();
     String requestUri = request.getRequestURI().substring(contextPath.length());
 
+    // Undertow (Wildfly Webserver) automatically adds welcome file to URI
+    if (requestUri.endsWith("index.html")) {
+    	requestUri = requestUri.replaceFirst("index\\.html$", "");
+    }
+
     Matcher uriMatcher = APP_PREFIX_PATTERN.matcher(requestUri);
+    
 
     if (uriMatcher.matches()) {
       String appName = uriMatcher.group(1);
       String engineName = uriMatcher.group(2);
       String pageUri = uriMatcher.group(3);
 
-      if (pageUri == null || pageUri.isEmpty() || SETUP_PAGE.equals(pageUri)) {
+      if (pageUri == null || pageUri.isEmpty() || SETUP_PAGE.equals(pageUri) || INDEX_PAGE.equals(pageUri)) {
         serveIndexPage(appName, engineName, pageUri, contextPath, request, response, chain);
-        return;
-      }
-
-      if (INDEX_PAGE.equals(pageUri)) {
-        response.sendRedirect(String.format("%s/app/%s/%s/", contextPath, appName, engineName));
         return;
       }
 
