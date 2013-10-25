@@ -23,12 +23,12 @@
     <version.bouncycastle>1.47</version.bouncycastle>
 
     <!-- application servers -->
-    <version.jboss.as>7.1.3.Final</version.jboss.as>
+    <version.jboss.as>7.2.0.Final</version.jboss.as>
     <version.wildfly>8.0.0.Beta1</version.wildfly>
     <version.glassfish>3.1.2</version.glassfish>
     <version.tomcat>7.0.33</version.tomcat>
 
-    <version.arquillian>1.0.1.Final</version.arquillian>
+    <version.arquillian>1.0.4.Final</version.arquillian>
     <version.arquillian.drone>1.0.0.Final</version.arquillian.drone>
 
     <version.ejb>3.1</version.ejb>
@@ -110,7 +110,7 @@
         <module>examples/invoice</module>
         <module>examples/wait-states</module>
     
-        <module>distro/jbossas71</module>
+        <module>distro/jbossas7</module>
         <module>distro/wildfly</module>
         <module>distro/gf31</module>
         <module>distro/tomcat</module>
@@ -685,7 +685,7 @@
         <plugin>                    
           <groupId>org.codehaus.cargo</groupId>
           <artifactId>cargo-maven2-plugin</artifactId>
-          <version>1.3.3</version>
+          <version>1.4.5</version>
         </plugin>
         <plugin>
           <groupId>net.kennychua</groupId>

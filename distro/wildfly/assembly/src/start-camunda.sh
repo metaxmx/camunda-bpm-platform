@@ -15,4 +15,4 @@ else
   (sleep 15; $BROWSER "http://localhost:8080/camunda-welcome/index.html";) &
 fi
 
-/bin/sh ./server/wildfly-${version.wildfly}/bin/standalone.sh
+/bin/sh "$(dirname "$0")/server/wildfly-${version.wildfly}/bin/standalone.sh"
