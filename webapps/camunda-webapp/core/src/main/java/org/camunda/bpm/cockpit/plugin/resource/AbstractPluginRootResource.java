@@ -57,9 +57,6 @@ public class AbstractPluginRootResource {
 
   protected static final String WEBAPP_PREFIX = "webapp://";
 
-  @Context
-  private ServletContext servletContext;
-
   private final String pluginName;
 
   public AbstractPluginRootResource(String pluginName) {
@@ -85,12 +82,12 @@ public class AbstractPluginRootResource {
    */
   @GET
   @Path("/static/{file:.*}")
-  public Response getAsset(@PathParam("file") String file) {
+  public Response getAsset(@PathParam("file") String file, @Context ServletContext servletContext) {
 
     CockpitPlugin plugin = getPluginRegistry().getPlugin(pluginName);
 
     if (plugin != null) {
-      InputStream assetStream = getPluginAssetAsStream(plugin, file);
+      InputStream assetStream = getPluginAssetAsStream(plugin, file, servletContext);
       if (assetStream != null) {
         String contentType = getContentType(file);
         return Response.ok(assetStream, contentType).build();
@@ -118,7 +115,7 @@ public class AbstractPluginRootResource {
    * @param resourceName
    * @return
    */
-  private InputStream getPluginAssetAsStream(CockpitPlugin plugin, String fileName) {
+  private InputStream getPluginAssetAsStream(CockpitPlugin plugin, String fileName, ServletContext servletContext) {
 
     String assetDirectory = plugin.getAssetDirectory();
 
@@ -128,13 +125,13 @@ public class AbstractPluginRootResource {
 
     if (assetDirectory.startsWith(WEBAPP_PREFIX)) {
       assetDirectory = assetDirectory.substring(WEBAPP_PREFIX.length());
-      return getWebResourceAsStream(assetDirectory, fileName);
+      return getWebResourceAsStream(assetDirectory, fileName, servletContext);
     } else {
       return getClasspathResourceAsStream(plugin, assetDirectory, fileName);
     }
   }
 
-  private InputStream getWebResourceAsStream(String assetDirectory, String fileName) {
+  private InputStream getWebResourceAsStream(String assetDirectory, String fileName, ServletContext servletContext) {
     String resourceName = String.format("/%s/%s", assetDirectory, fileName);
 
     return servletContext.getResourceAsStream(resourceName);

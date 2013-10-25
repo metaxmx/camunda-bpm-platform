@@ -21,13 +21,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ServiceLoader;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -50,9 +48,6 @@ public class UserAuthenticationResource {
   public static final String PATH = "/auth/user";
 
   private static final String[] APPS = new String[] { "cockpit", "tasklist" };
-
-  @Context
-  protected HttpServletRequest request;
 
   @GET
   @Path("/{processEngineName}")
