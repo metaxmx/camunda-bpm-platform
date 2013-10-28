@@ -33,6 +33,9 @@
     <jboss.txn-status-manager.port>34713</jboss.txn-status-manager.port>
     <jboss.mail-smtp.port>25</jboss.mail-smtp.port>
     
+    <!-- Wildfly (most properties from jboss configuration) -->
+    <wildfly.runtime.location>../wildfly-runtime/target/server/wildfly-${version.wildfly}/</wildfly.runtime.location>
+    
     <!-- glassfish properties -->
     <glassfish.runtime.location>../gf31-runtime/target/server/glassfish3</glassfish.runtime.location>
     
@@ -70,6 +73,7 @@
 	  <id>distro</id>  
       <modules>
         <module>jboss7-runtime</module>
+        <module>wildfly-runtime</module>
         <module>gf31-runtime</module>
         <module>tomcat-runtime</module>
         <module>integration-tests-webapps</module>
@@ -91,6 +95,13 @@
       <id>jboss</id> 
       <modules>       
         <module>jboss7-runtime</module>
+      </modules>
+    </profile>  
+	
+    <profile>      
+      <id>wildfly</id> 
+      <modules>       
+        <module>wildfly-runtime</module>
       </modules>
     </profile>  
 	
