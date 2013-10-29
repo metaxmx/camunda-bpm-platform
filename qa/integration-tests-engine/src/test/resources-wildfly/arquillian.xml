@@ -11,7 +11,8 @@
   <container qualifier="wildfly" default="true">
     <configuration>
       <property name="jbossHome">${wildfly.runtime.location}</property>
-      <property name="managementPort">${jboss.management-native.port}</property>
+      <!-- Wildfly uses the HTTP management port for remote deployments, instead on native management port as JBoss does -->
+      <property name="managementPort">${jboss.management-http.port}</property>
       <property name="serverConfig">standalone.xml</property>
       <property name="javaVmArguments">-Xmx512m -XX:MaxPermSize=140m</property>      
       <property name="startupTimeoutInSeconds">300</property>
