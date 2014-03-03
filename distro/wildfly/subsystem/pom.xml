@@ -34,12 +34,6 @@
         <groupId>org.wildfly</groupId>
         <artifactId>wildfly-weld</artifactId>
         <version>${version.wildfly}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.sun</groupId>
-            <artifactId>tools</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.jboss.spec.javax.transaction</groupId>
@@ -121,7 +115,7 @@
     </dependency>
   </dependencies>
 
-  <build>
+  <build>  
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -142,7 +136,7 @@
           </includes>
           <forkMode>once</forkMode>
         </configuration>
-      </plugin>
+      </plugin>     
     </plugins>
   </build>
 
