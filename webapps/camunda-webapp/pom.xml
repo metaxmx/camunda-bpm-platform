@@ -39,6 +39,7 @@
         <module>jboss</module>
         <module>tomcat</module>
         <module>glassfish</module>
+        <module>wildfly</module>
 
       </modules>
     </profile>
